@@ -26,11 +26,12 @@ myEmitter.emit("newSale", 9);
 const server = http.createServer();
 server.on("request", (req, res) => {
   console.log("request Received!");
+  console.log(req.url);
   res.end("request received");
 });
 
 server.on("request", (req, res) => {
-  res.end("another request!");
+  console.log("another request!");
 });
 
 server.on("close", () => {
