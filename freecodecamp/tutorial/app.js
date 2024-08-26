@@ -1,7 +1,13 @@
-// GLOBALS - NO WINDOW!
+// Modules
 
-//__dirname - path to current directory
-//__filename - file name
-//require -   -function to use modules (commonJS)
-//module      - info about current module (file)
-//process     - info about env where the program is being executed
+const secret = `super secret`;
+const john = "john";
+const peter = "peter";
+
+const sayHi = (name) => {
+  console.log(`hello there ${name}`);
+};
+
+sayHi("susan");
+sayHi(john);
+sayHi(peter);
