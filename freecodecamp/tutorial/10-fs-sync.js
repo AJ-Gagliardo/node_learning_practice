@@ -1,4 +1,5 @@
 const { readFileSync, writeFileSync } = require("fs");
+console.log("start");
 // same as:
 // const fs = require('fs')
 // fs.read
@@ -10,3 +11,6 @@ writeFileSync(
   `Here is the result : ${first}, ${second}`,
   { flag: "a" }
 );
+
+console.log("done with the task");
+console.log("starting with the next one");
