@@ -1,11 +1,10 @@
-const axios = require("axios");
+require("dotenv").config();
 
-axios
-  .get("https://example.com/todos")
-  .then((res) => {
-    console.log(`statusCode: ${res.status}`);
-    console.log(res);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+if (process.env.NODE_ENV === "prod") {
+  // do production-specific stuff
+  console.log(process.env.NODE_ENV);
+}
+
+// don't want to ruin the surprise by hardcoding the URL!
+// it might even change every few days!
+// redirectUserToSuperSecretVideo(process.env.VIDEO_URL);
