@@ -13,3 +13,8 @@ const middleware 3 = (req,res,next)=>{
   console.log("Middleware 3");
   res.send('response from middleware 3')
 }
+
+application.use(middleware1)
+application.use(middleware2)
+application.use(middleware3)
+// wil log 'middleware 1' -> 'middleware 2' and send a response with  the text 'response from middleware 2'
