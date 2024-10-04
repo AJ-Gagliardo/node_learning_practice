@@ -6,9 +6,9 @@ const port = 3000; //
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("index", { message: "EJS rocks!" });
-});
+// app.get("/", (req, res) => {
+//   res.render("index", { message: "EJS rocks!" });
+// });
 app.listen(port, () => {
   //
   console.log(`listening to port ${port} `);
@@ -19,6 +19,8 @@ const links = [
   { href: "about", text: "About" },
 ];
 
+const users = ["Rose", "Cake", "Biff"];
+
 app.get("/", (req, res) => {
-  res.render("index", { links: links });
+  res.render("index", { links: links, users: users });
 });
