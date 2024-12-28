@@ -1,11 +1,19 @@
 const express = require("express");
 const app = express();
+const tasks = require("./routes/tasks");
+const connectDB = require("./db/connect");
+require("dotenv").config();
 
-//routes
+// middleware
+app.use(express.json());
+
+// routes
 
 app.get("/hello", (req, res) => {
   res.send("task manager");
 });
+
+app.use("/api/v1/tasks", tasks);
 
 // app.get('/api/v1/tasks')       - get all tasks
 // app.post('/api/v1/tasks')      -create a new task
@@ -15,4 +23,13 @@ app.get("/hello", (req, res) => {
 
 const port = 3000;
 
-app.listen(port, console.log(`server is listening on ${port}...`));
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URI);
+    app.listen(port, console.log(`server is listening on ${port}...`));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start();
